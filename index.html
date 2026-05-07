@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="theme-color" content="#000000">
+    <title>Nima yeymiz? | Premium Food Discovery</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div id="splashScreen" class="splash">
+        <div class="splash-content">
+            <div class="logo-animation">
+                <div class="leaf-icon">
+                    <i class="fas fa-leaf"></i>
+                </div>
+                <h1 class="splash-logo">Nima yeymiz?</h1>
+                <p class="splash-tagline">Sevimli taomlaringiz bir zumda!</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="authScreen" class="auth-screen" style="display: none;">
+        <div class="auth-container">
+            <div class="auth-header">
+                <div class="auth-logo">
+                    <i class="fas fa-leaf"></i>
+                    <span>Nima yeymiz?</span>
+                </div>
+                <h2>Xush kelibsiz!</h2>
+                <p>Davom etish uchun ma'lumotlaringizni kiriting</p>
+            </div>
+            <div class="auth-form">
+                <div class="input-group">
+                    <input type="text" id="fullName" placeholder=" " autocomplete="off">
+                    <label>To'liq ismingiz</label>
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="input-group">
+                    <input type="tel" id="phoneNumber" placeholder=" " autocomplete="off">
+                    <label>Telefon raqam</label>
+                    <i class="fas fa-phone"></i>
+                </div>
+            </div>
+            <div class="auth-bottom">
+                <button id="registerBtn" class="auth-btn">
+                    <span>Boshlash</span>
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="mainApp" class="main-app" style="display: none;">
+        <div class="app-container">
+            <!-- Bottom Navigation -->
+            <nav class="bottom-nav">
+                <div class="nav-item active" data-tab="home">
+                    <i class="fas fa-home"></i>
+                    <span>Bosh sahifa</span>
+                </div>
+                <div class="nav-item" data-tab="menu">
+                    <i class="fas fa-utensils"></i>
+                    <span>Menyu</span>
+                </div>
+                <div class="nav-item" data-tab="roulette">
+                    <i class="fas fa-circle-notch"></i>
+                    <span>Ruletka</span>
+                </div>
+                <div class="nav-item" data-tab="rewards">
+                    <i class="fas fa-gift"></i>
+                    <span>Sovg'alar</span>
+                </div>
+                <div class="nav-item" data-tab="profile">
+                    <i class="fas fa-user"></i>
+                    <span>Profil</span>
+                </div>
+            </nav>
+
+            <div class="app-content">
+                <!-- Home Tab -->
+                <div id="homeTab" class="tab-content active">
+                    <div class="home-header">
+                        <div class="greeting-section">
+                            <div class="user-greeting">
+                                <h3 id="greetingName">Assalomu alaykum!</h3>
+                                <p>Bugun nima yeymiz?</p>
+                            </div>
+                            <div class="stats-container">
+                                <div class="stat-card">
+                                    <i class="fas fa-gem"></i>
+                                    <span id="diamondCount">0</span>
+                                    <small>Olmos</small>
+                                </div>
+                                <div class="stat-card">
+                                    <i class="fas fa-percent"></i>
+                                    <span id="cashbackBalance">0</span>
+                                    <small>Cashback</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="search-section">
+                            <div class="search-box">
+                                <i class="fas fa-search"></i>
+                                <input type="text" id="searchInput" placeholder="Taom izlash...">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="categories-slider">
+                        <div class="category-item active" data-category="all">
+                            <i class="fas fa-th-large"></i>
+                            <span>Barchasi</span>
+                        </div>
+                        <div class="category-item" data-category="Burger">
+                            <i class="fas fa-hamburger"></i>
+                            <span>Burger</span>
+                        </div>
+                        <div class="category-item" data-category="Lavash">
+                            <i class="fas fa-bread-slice"></i>
+                            <span>Lavash</span>
+                        </div>
+                        <div class="category-item" data-category="Salat">
+                            <i class="fas fa-salad"></i>
+                            <span>Salat</span>
+                        </div>
+                        <div class="category-item" data-category="Ichimlik">
+                            <i class="fas fa-coffee"></i>
+                            <span>Ichimlik</span>
+                        </div>
+                        <div class="category-item" data-category="Milliy">
+                            <i class="fas fa-flag"></i>
+                            <span>Milliy</span>
+                        </div>
+                    </div>
+
+                    <div class="section-title">
+                        <h4>Tavsiya etamiz</h4>
+                        <a href="#" class="view-all">Barchasi <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div id="recommendedFoods" class="foods-grid"></div>
+                </div>
+
+                <!-- Menu Tab -->
+                <div id="menuTab" class="tab-content">
+                    <div class="menu-header">
+                        <h3>Menyu</h3>
+                        <button id="adminBtn" class="admin-btn">
+                            <i class="fas fa-user-shield"></i>
+                            Admin
+                        </button>
+                    </div>
+                    <div id="menuFoods" class="foods-grid"></div>
+                </div>
+
+                <!-- Roulette Tab -->
+                <div id="rouletteTab" class="tab-content">
+                    <div class="roulette-container">
+                        <h3>Taom ruletkasi</h3>
+                        <p>Bugun nima yeymiz? Aylantiring va tanlang!</p>
+                        <div class="wheel-wrapper">
+                            <canvas id="foodWheel" width="400" height="400"></canvas>
+                            <div class="wheel-pointer"></div>
+                            <button id="spinFoodWheel" class="spin-btn">
+                                <i class="fas fa-sync-alt"></i>
+                                AYLANTIRISH
+                            </button>
+                        </div>
+                        <div id="rouletteResult" class="roulette-result"></div>
+                    </div>
+                </div>
+
+                <!-- Rewards Tab -->
+                <div id="rewardsTab" class="tab-content">
+                    <div class="rewards-container">
+                        <h3>Mukofot ruletkasi</h3>
+                        <p>Olmoslaringiz: <strong id="rewardDiamonds">0</strong></p>
+                        <p>Aylantirish narxi: <strong>20 olmos</strong></p>
+                        <div class="wheel-wrapper">
+                            <canvas id="rewardWheel" width="400" height="400"></canvas>
+                            <div class="wheel-pointer reward-pointer"></div>
+                            <button id="spinRewardWheel" class="spin-btn reward-spin" disabled>
+                                <i class="fas fa-gem"></i>
+                                AYLANTIRISH (20 olmos)
+                            </button>
+                        </div>
+                        <div class="leaderboard-section">
+                            <h4>🏆 Top foydalanuvchilar</h4>
+                            <div id="leaderboard" class="leaderboard-list"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Profile Tab -->
+                <div id="profileTab" class="tab-content">
+                    <div class="profile-container">
+                        <div class="profile-header">
+                            <div class="avatar">
+                                <i class="fas fa-user-circle"></i>
+                            </div>
+                            <h3 id="profileName">User</h3>
+                            <p id="profilePhone">+998 XX XXX XX XX</p>
+                        </div>
+                        <div class="profile-stats">
+                            <div class="stat-item">
+                                <span>Olmoslar</span>
+                                <strong id="profileDiamonds">0</strong>
+                            </div>
+                            <div class="stat-item">
+                                <span>Cashback</span>
+                                <strong id="profileCashback">0</strong>
+                            </div>
+                            <div class="stat-item">
+                                <span>Level</span>
+                                <strong id="profileLevel">Bronze</strong>
+                            </div>
+                        </div>
+                        <div class="settings-section">
+                            <h4>Sozlamalar</h4>
+                            <div class="setting-item">
+                                <span><i class="fas fa-language"></i> Til</span>
+                                <select id="languageSelect">
+                                    <option value="uz">O'zbekcha</option>
+                                    <option value="ru">Русский</option>
+                                </select>
+                            </div>
+                            <div class="setting-item">
+                                <span><i class="fas fa-moon"></i> Mavzu</span>
+                                <select id="themeSelect">
+                                    <option value="light">Yorug'</option>
+                                    <option value="dark">Qorong'u</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button id="logoutBtn" class="logout-btn">
+                            <i class="fas fa-sign-out-alt"></i>
+                            Chiqish
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cart Sidebar -->
+            <div id="cartSidebar" class="cart-sidebar">
+                <div class="cart-header">
+                    <h3>Savat <span id="cartCount">0</span></h3>
+                    <button id="closeCart"><i class="fas fa-times"></i></button>
+                </div>
+                <div id="cartItems" class="cart-items"></div>
+                <div class="cart-footer">
+                    <div class="cart-total">
+                        <span>Jami:</span>
+                        <strong id="cartTotalPrice">0 so'm</strong>
+                    </div>
+                    <div class="cart-cashback">
+                        <span>Cashback qaytadi:</span>
+                        <strong id="cartCashback">0 so'm</strong>
+                    </div>
+                    <div class="cart-diamonds">
+                        <span>Olmoslar:</span>
+                        <strong id="cartDiamonds">0</strong>
+                    </div>
+                    <button id="checkoutBtn" class="checkout-btn">Buyurtma berish</button>
+                </div>
+            </div>
+            <div id="cartOverlay" class="cart-overlay"></div>
+            <button id="cartFloatingBtn" class="cart-floating">
+                <i class="fas fa-shopping-cart"></i>
+                <span id="floatingCartCount">0</span>
+            </button>
+        </div>
+    </div>
+
+    <div id="adminPanel" class="admin-panel" style="display: none;">
+        <div class="admin-container">
+            <div class="admin-header">
+                <h2>Admin Panel</h2>
+                <button id="closeAdmin"><i class="fas fa-times"></i></button>
+            </div>
+            <form id="foodForm">
+                <input type="text" id="foodName" placeholder="Taom nomi" required>
+                <input type="number" id="foodPrice" placeholder="Narxi (so'm)" required>
+                <select id="foodCategory" required>
+                    <option value="Burger">Burger</option>
+                    <option value="Lavash">Lavash</option>
+                    <option value="Salat">Salat</option>
+                    <option value="Ichimlik">Ichimlik</option>
+                    <option value="Milliy">Milliy</option>
+                </select>
+                <input type="number" id="foodCashback" placeholder="Cashback %" value="5">
+                <input type="number" id="foodDiamonds" placeholder="Olmos" value="1">
+                <input type="file" id="foodImage" accept="image/*">
+                <button type="submit">Taom qo'shish</button>
+            </form>
+            <div id="adminFoodsList" class="admin-foods-list"></div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
