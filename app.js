@@ -696,3 +696,35 @@ initNavigation();
 initEventListeners();
 updateUI();
 updateLeaderboard();
+// ===== FIX BOTTOM NAVIGATION =====
+
+const navItems = document.querySelectorAll(".nav-item");
+const tabs = document.querySelectorAll(".tab-content");
+
+navItems.forEach(item => {
+    item.addEventListener("click", () => {
+
+        // active nav remove
+        navItems.forEach(nav => {
+            nav.classList.remove("active");
+        });
+
+        // active tab remove
+        tabs.forEach(tab => {
+            tab.classList.remove("active");
+            tab.style.display = "none";
+        });
+
+        // current active
+        item.classList.add("active");
+
+        const tabName = item.getAttribute("data-tab");
+        const currentTab = document.getElementById(tabName + "Tab");
+
+        if(currentTab){
+            currentTab.classList.add("active");
+            currentTab.style.display = "block";
+        }
+
+    });
+});
