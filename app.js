@@ -6,6 +6,28 @@
    3. Cashback ishlatish tugmasi va Payme/Click
    4. Buyurtmalar tarixida 4 xonali ID va vaqt
    ═══════════════════════════════════════════ */
+// ========== PASTKI NAVIGATSIYA TUGMALARINI TUZATISH ==========
+document.querySelectorAll('.bnav').forEach(btn => {
+  btn.removeEventListener('click', () => {});
+  btn.addEventListener('click', (e) => {
+    e.preventDefault();
+    const page = btn.getAttribute('data-page');
+    if (page) {
+      console.log('Navigatsiya:', page);
+      goPage(page);
+    }
+  });
+});
+
+// Savat tugmasiga alohida
+const navCart = document.getElementById('nav-cart-btn');
+if (navCart) {
+  navCart.removeEventListener('click', openCart);
+  navCart.addEventListener('click', (e) => {
+    e.preventDefault();
+    openCart();
+  });
+} 
 'use strict';
 
 const SK = {
